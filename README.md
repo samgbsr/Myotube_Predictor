@@ -55,7 +55,7 @@ bundle install
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/yourusername/your-repo-name.git
+git clone https://github.com/samgbsr/Myotube_Predictor/
 cd your-repo-name
 ```
 
@@ -155,5 +155,3 @@ The frontend runs on `http://127.0.0.1:3000`.
 This project is licensed under the MIT License.
 
 ---
-
-Replace `yourusername` and `your-repo-name` with the actual GitHub username and repository name. Let me know if you need further adjustments!
