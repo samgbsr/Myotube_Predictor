@@ -11,4 +11,22 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+  
+  # api routes
+  namespace :api do
+    resources :images, only: [:create]
+  end
+  get '/images/:id/download', to: 'images#download', as: 'download_image'
+
+  # config/routes.rb
+  resources :projects, only: [:index]
+  resources :images, only: [:index, :create]
+  resources :myotubes, only: [:index]
+  resources :images do
+    member do
+      get :show_image
+    end
+  end
+  
+  
 end

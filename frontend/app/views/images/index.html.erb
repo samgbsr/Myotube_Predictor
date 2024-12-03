@@ -1,0 +1,64 @@
+<h1>Myotube Image Analysis</h1>
+<button id="upload-image-btn" onclick="showModal()">Upload Image</button>
+<table>
+  <thead>
+    <tr>
+      <th>File Name</th>
+      <th>Myotube Amount</th>
+      <th>Project</th>
+      <th>Created At</th>
+      <th>Processed Image</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @images.each do |image| %>
+      <tr>
+        <td><%= image.file_name %></td>
+        <td><%= image.myotube_amount %></td>
+        <td><%= image.project.name %></td>
+        <td><%= image.created_at.strftime('%Y-%m-%d %H:%M:%S') %></td>
+        <td>
+          <img src="data:image/png;base64,<%= Base64.encode64(image.image_data) %>" alt="<%= image.file_name %>" width="100">
+        </td>
+        <td>
+          <%= link_to 'Download', download_image_path(image), class: 'btn btn-primary' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+<!-- Modal for Image Upload -->
+<div id="upload-modal" style="display: none;">
+  <div>
+    <h2>Upload Image</h2>
+    <form action="<%= images_path %>" method="post" enctype="multipart/form-data">
+      <%= csrf_meta_tags %>
+      <label for="project_id">Select Project</label>
+      <select name="image[project_id]" id="project_id">
+        <% Project.all.each do |project| %>
+          <option value="<%= project.id %>"><%= project.name %></option>
+        <% end %>
+      </select>
+
+      <label for="file_name">Image</label>
+      <input type="file" name="image[file_name]" id="file_name" required>
+
+      <button type="submit">Upload</button>
+      <button type="button" onclick="hideModal()">Cancel</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  function showModal() {
+    document.getElementById('upload-modal').style.display = 'block';
+  }
+
+  function hideModal() {
+    document.getElementById('upload-modal').style.display = 'none';
+  }
+</script>
