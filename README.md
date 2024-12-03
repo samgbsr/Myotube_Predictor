@@ -28,7 +28,7 @@ Before setting up the repository, ensure the following dependencies are installe
 ### Python Backend Requirements
 Install the Python dependencies in a virtual environment:
 ```bash
-cd python_backend
+cd backend
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
@@ -45,7 +45,7 @@ The `requirements.txt` file includes:
 ### Ruby Frontend Requirements
 Install the necessary Ruby gems:
 ```bash
-cd ruby_frontend
+cd frontend
 bundle install
 ```
 
@@ -62,7 +62,7 @@ cd your-repo-name
 ### 2. Start the Python Backend
 The Python backend handles image processing. To run it:
 ```bash
-cd python_backend
+cd backend
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 flask run
 ```
@@ -71,7 +71,7 @@ The backend runs on `http://127.0.0.1:5000`.
 ### 3. Start the Ruby Frontend
 The Ruby on Rails frontend interacts with the Python backend and serves the web app. To start it:
 ```bash
-cd ruby_frontend
+cd frontend
 rails server
 ```
 The frontend runs on `http://127.0.0.1:3000`.
@@ -98,12 +98,12 @@ The frontend runs on `http://127.0.0.1:3000`.
 
 ```plaintext
 .
-├── python_backend/           # Python backend
+├── backend/           # Python backend
 │   ├── app.py                # Flask application entry point
 │   ├── requirements.txt      # Python dependencies
 │   ├── static/               # Processed images and results
 │   └── Modelo/               # Trained model and prediction scripts
-├── ruby_frontend/            # Ruby on Rails frontend
+├── frontend/            # Ruby on Rails frontend
 │   ├── app/                  # Rails application files
 │   ├── Gemfile               # Ruby gem dependencies
 │   └── db/                   # Rails database files
