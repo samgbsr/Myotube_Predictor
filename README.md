@@ -155,3 +155,7 @@ The frontend runs on `http://127.0.0.1:3000`.
 This project is licensed under the MIT License.
 
 ---
+
+## Data and Privacy
+
+The project is implemented in a standalone web application that can be run on localhost with the purpose of not connecting to the internet or needing to upload images anywhere on the web. Te database is created locally when de project is first executed and remains there during use.
